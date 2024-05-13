@@ -1,0 +1,7 @@
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+https://code.visualstudio.com/docs/setup/linux#_snap
+https://code.visualstudio.com/docs/editor/command-line
+https://github.com/wechaty/getting-started/issues/204
+https://phoenixnap.com/kb/update-node-js-version
+https://github.com/npm/npm/issues/15875
+
