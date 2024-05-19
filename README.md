@@ -72,6 +72,50 @@ void loop() {
       Keyboard.releaseAll();
       delay(1000); // Wait for Terminal to open
 
+      // Type pkill firefox to close Firefox
+      Keyboard.print("pkill firefox");
+      delay(100); // Wait for typing
+      Keyboard.press(KEY_RETURN);
+      delay(100); // Ensure the command is sent
+      Keyboard.releaseAll();
+      delay(2000); // Wait 2 seconds for Firefox to close
+
+      // Type sudo reboot to reboot the system
+      Keyboard.print("sudo reboot");
+      delay(100); // Wait for typing
+      Keyboard.press(KEY_RETURN);
+      delay(100); // Ensure the command is sent
+      Keyboard.releaseAll();
+      delay(100); // Final debounce delay
+    }
+  }
+}
+
+  // Store current state for comparison in the next iteration
+  altShiftPrev = altShiftState;
+
+  // Read the state of the reboot button
+  int rebootState = digitalRead(REBOOT_KEY);
+
+  // Check if the reboot button is pressed
+  if (rebootState == LOW) {
+    delay(50); // Debounce delay
+    if (digitalRead(REBOOT_KEY) == LOW) {
+      // Ensure the layout is set to English before rebooting
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press(KEY_LEFT_SHIFT);
+      delay(100); // Wait for stable
+      Keyboard.releaseAll();
+      delay(100); // Wait for debounce
+
+      // Open Terminal (Ctrl + Alt + T)
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press('t');
+      delay(100);
+      Keyboard.releaseAll();
+      delay(1000); // Wait for Terminal to open
+
       // Type sudo reboot without prompt
       Keyboard.print("sudo reboot");
       delay(100); // Wait for typing
@@ -92,8 +136,8 @@ Mada ALL=(ALL)  NOPASSWD: /sbin/reboot
 ללחוץ ctrl+x ו enter לשמירה
 
 המשמעות של ההחרגה הזאת, שניתנה הרשאה ל Arduino להכניס סיסמא.
-לפני ה – , reboot Arduino  ינסה להעביר את ההקלדה לאנגלית ואז יבצע פקודה sudo reboot
-לכן אם אולי יהיה צורך ללחוץ פעמיים על כפתור האתחול עד שהמערכת לא תזהה אנגלית ותבצע את האתחול. זה רק בתנאי עם מותקנת שפה שלישית. אם זה רק אנגלית ועברית, אמור לעבוד מלחיצה אחת.
+לפני ה – , reboot Arduino  ינסה להעביר את ההקלדה לאנגלית ואז יבצע פקודות  pkill firefox and sudo reboot
+לכן אם אולי יהיה צורך ללחוץ כמה פעמים על כפתור האתחול עד שהמערכת לא תזהה אנגלית ותבצע סגירת הדפדפן ואת האתחול. 
 
 
 לאחר מכן עליתי על עוד סוג של בעיה. ברגע ששפת הקלדה בעברית, אז המקשים W Q הופכים להיות לסימנים  / '   ושני אלו בהקשה בדפדפן פותחים למטה שורת חיפוש שנותן לצאת מהתוכנה.
