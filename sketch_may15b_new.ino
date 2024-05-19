@@ -56,7 +56,15 @@ void loop() {
       Keyboard.releaseAll();
       delay(1000); // Wait for Terminal to open
 
-      // Type sudo reboot without prompt
+      // Type pkill firefox to close Firefox
+      Keyboard.print("pkill firefox");
+      delay(100); // Wait for typing
+      Keyboard.press(KEY_RETURN);
+      delay(100); // Ensure the command is sent
+      Keyboard.releaseAll();
+      delay(2000); // Wait 2 seconds for Firefox to close
+
+      // Type sudo reboot to reboot the system
       Keyboard.print("sudo reboot");
       delay(100); // Wait for typing
       Keyboard.press(KEY_RETURN);
