@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://rsms.me/inter.inter.css" />
+    <title>מוזיאון המדע ע״ש בלומפילד ירושלים</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable Left Click</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the current page URL
+            const currentURL = window.location.pathname;
+
+            // If this is the main page "/", disable the left mouse button
+            if (currentURL === "/") {
+                document.addEventListener('mousedown', function (event) {
+                    if (event.button === 0) { // Check if the left mouse button is clicked
+                        event.preventDefault();
+                    }
+                });
+                console.log("Left mouse button is disabled on the main page.");
+            } else {
+                console.log("Left mouse button is enabled.");
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Mouse Click Configuration</h1>
+    <p>Left clicks are disabled on the main page but enabled on other pages.</p>
+</body>
+</html>
