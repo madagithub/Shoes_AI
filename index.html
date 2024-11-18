@@ -12,29 +12,22 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disable Left Click</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable Drag and Drop</title>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get the current page URL
-            const currentURL = window.location.pathname;
-
-            // If this is the main page "/", disable the left mouse button
-            if (currentURL === "/") {
-                document.addEventListener('mousedown', function (event) {
-                    if (event.button === 0) { // Check if the left mouse button is clicked
-                        event.preventDefault();
-                    }
-                });
-                console.log("Left mouse button is disabled on the main page.");
-            } else {
-                console.log("Left mouse button is enabled.");
-            }
+            // Disable drag-and-drop for all elements
+            document.addEventListener('dragstart', function (event) {
+                event.preventDefault();
+                console.log("Drag-and-drop is disabled.");
+            });
         });
     </script>
 </head>
 <body>
-    <h1>Mouse Click Configuration</h1>
-    <p>Left clicks are disabled on the main page but enabled on other pages.</p>
-</body>
+      
 </html>
