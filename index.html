@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="he">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://rsms.me/inter.inter.css" />
     <title>מוזיאון המדע ע״ש בלומפילד ירושלים</title>
+    <script>
+      // Disable drag-and-drop for all elements
+      document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('dragstart', function (event) {
+          event.preventDefault();
+          console.log("Drag-and-drop is disabled.");
+        });
+      });
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Content of the page will go here -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disable Drag and Drop</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Disable drag-and-drop for all elements
-            document.addEventListener('dragstart', function (event) {
-                event.preventDefault();
-                console.log("Drag-and-drop is disabled.");
-            });
-        });
-    </script>
-</head>
-<body>
-      
 </html>
